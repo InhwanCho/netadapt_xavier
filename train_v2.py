@@ -265,6 +265,8 @@ if __name__ == '__main__':
             interpolation = Image.BILINEAR
         normalize = transforms.Normalize(mean=[0.485, 0.456, 0.406],
                                      std=[0.229, 0.224, 0.225])
+        if args.arch == 'efficientnet_es_postech':
+            normalize = transforms.Normalize(mean=[0.5019, 0.5019, 0.5019], std=[0.5019, 0.5019, 0.5019])
         train_dataset = datasets.folder.ImageFolder(root='/home/keti/workspace/Dataset/imagenet/train/',
         transform=transforms.Compose([
             transforms.RandomResizedCrop(224,interpolation=interpolation),
